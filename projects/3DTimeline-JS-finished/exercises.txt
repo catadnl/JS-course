@@ -1,0 +1,34 @@
+1. Add jQuery dependency, a new Js file dependency and create a event listener on when
+the page is ready to be changed by scripts
+
+
+2. Show comments from Js at load.
+    - Create a function which will return an li element like the html which will take as parameter a comment object
+      model with the properties: date as a Date with format '2016-11-19', title, ownerClassName, content
+    - Create a list of comment object models as a variable in the js
+    - Create a renderComments function that will append the list of computed li elements to the ul with class 'timeline'.
+     The list will be ordered descending by date.
+    // date.toDateString().substring(3, 10)
+    - Add checked attribute dynamically on the input of the first item of the list
+
+
+3. Add new input and button for adding a comment.
+    - Add input text with class 'comment-title-input' for title and a placeholder,
+     a textarea with class 'comment-content-input' for content  and a placeholder
+     and a button with class 'post-button' for with text 'post'.
+      All of them in a div with class 'add-comment-zone' after the list
+    - Add an event listener on the button from js that will create a comment object model for user 'guest'
+     and current date and adds it to the comment list.
+    then re render the list of comments.
+    - Make validations in Js for the fields not to be empty and make them empty after the new comment is added
+
+
+4. Interact with the API
+    // At the course we used the URL: https://js-course-2.firebaseio.com/comments.json . This endpoint is NO longer available.
+    // For more testing create your own project on firebase or a simple backend using Spring
+    // In project folder will find a comment.json with the data from the database
+    - create a function getCommentsFromServer which will make an ajax call to the url above to retrieve the comment models
+     (the data will come in the same format as described above)
+    - the date will come as a string format. initialize the commentList with a mapped version of the response in which the 'date' property is a Date
+    - assign a callback function for Ajax call failure
+    - make a ajax call to save the new posted data and add it to the list after the call is finished
